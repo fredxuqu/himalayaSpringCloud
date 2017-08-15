@@ -11,7 +11,7 @@ public class HimalayaSpringBootApplication {
 	private static final Logger logger = LoggerFactory.getLogger(HimalayaSpringBootApplication.class);
 
 	public static void main(String[] args) {
-		
+		 
 		SpringApplication.run(HimalayaSpringBootApplication.class, args);
 		
 		logger.info("HimalayaSpringBootApplication is running......");
