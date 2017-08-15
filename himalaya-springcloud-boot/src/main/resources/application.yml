@@ -1,0 +1,20 @@
+server:
+  port: 8080
+  sessionTimeout: 30000
+  context-path: /demo
+
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
+cron:
+  tags: 0/5 * * * * ? 
+
+---
+spring:
+  profiles: test
+cron:
+  tags: 0/10 * * * * ? 

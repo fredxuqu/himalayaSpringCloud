@@ -8,12 +8,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class HimalayaSpringBootApplication {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HimalayaSpringBootApplication.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(HimalayaSpringBootApplication.class);
 
 	public static void main(String[] args) {
 		 
 		SpringApplication.run(HimalayaSpringBootApplication.class, args);
 		
-		logger.info("HimalayaSpringBootApplication is running......");
+		LOGGER.info("HimalayaSpringBootApplication is running......");
 	}
 }
