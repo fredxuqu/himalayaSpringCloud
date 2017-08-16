@@ -26,8 +26,8 @@
 	</properties>
 	
 	<modules>
-		<module>himalaya-springcloud-boot</module>
-		<module>himalaya-springcloud-eureka</module>
+		<module>himalaya-springcloud-provider</module>
+		<module>himalaya-springcloud-consumer</module>
 	</modules>
 	
 	<dependencyManagement>
