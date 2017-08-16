@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import com.himalaya.demo.domain.HimalayaRepositoryCustom;
 
-
 /**
 * @author: xuqu
 * @E-mail: fredxuqu@163.com

@@ -15,17 +15,17 @@ import com.himalaya.demo.domain.entity.UserDO;
 * 2017年8月16日 下午3:23:46
 * Description
 */
-public class HimalayaRepositoryTest extends HimalayaDemoApplicationTest {
+public class HimalayaJpaRepositoryTest extends HimalayaDemoApplicationTest {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(HimalayaRepositoryTest.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(HimalayaJpaRepositoryTest.class);
 
-	@Autowired
-	HimalayaRepository himalayaRepository;
-	
-	@Test
-	public void testGetById() {
-		UserDO user = himalayaRepository.findOne(2l);
-		
-		LOGGER.info("Tested, username " + user.getUsername());
-	}
+//	@Autowired
+//	HimalayaRepository himalayaRepository;
+//	
+//	@Test
+//	public void testGetById() {
+//		UserDO user = himalayaRepository.findOne(2l);
+//		
+//		LOGGER.info("Tested, username " + user.getUsername());
+//	}
 }

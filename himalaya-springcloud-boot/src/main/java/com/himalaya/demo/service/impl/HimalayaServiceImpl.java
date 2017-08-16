@@ -5,12 +5,8 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.himalaya.demo.domain.CustomRepository;
-import com.himalaya.demo.domain.HimalayaRepository;
-import com.himalaya.demo.domain.HimalayaRepositoryCustom;
 import com.himalaya.demo.domain.entity.UserDO;
 import com.himalaya.demo.service.HimalayaService;
 
@@ -18,47 +14,34 @@ import com.himalaya.demo.service.HimalayaService;
 public class HimalayaServiceImpl implements HimalayaService {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(HimalayaServiceImpl.class);
-	
-	@Autowired
-	HimalayaRepository himalayaRepository;
-	
-	@Autowired
-	HimalayaRepositoryCustom himalayaRepositoryCustom;
-	
-	
-	@Autowired
-	CustomRepository<UserDO, > customRepository;
-	
+
 	@Override
 	public String service() {
-		
-		LOGGER.info("call service ");
-		return "succ";
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public UserDO getUserById(Long id) {
-		
-		UserDO user = himalayaRepository.findOne(id);
-		
-		LOGGER.info("userName is " + user.getUsername());
-		
-		return user;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public int count() {
-		return himalayaRepositoryCustom.count();
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
 	public BigDecimal countBalance() {
-		return himalayaRepositoryCustom.countBalance();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public List<UserDO> list() {
-	
+	public List<Object[]> list() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 }

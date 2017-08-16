@@ -13,6 +13,6 @@ import com.himalaya.demo.domain.entity.UserDO;
 * Description
 */
 @Repository
-public interface HimalayaRepository extends JpaRepository<UserDO, Long>{
+public interface HimalayaJpaRepository extends JpaRepository<UserDO, Long>{
 
 }

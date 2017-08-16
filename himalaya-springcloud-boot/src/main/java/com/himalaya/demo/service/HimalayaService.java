@@ -13,5 +13,5 @@ public interface HimalayaService {
 	public int count();
 	public BigDecimal countBalance();
 	
-	public List<UserDO> list();
+	public List<Object[]> list();
 }
