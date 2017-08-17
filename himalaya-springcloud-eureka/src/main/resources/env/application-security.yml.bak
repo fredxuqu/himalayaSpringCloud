@@ -17,10 +17,9 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://localhost:8090/eureka/  
-        
-security:                                      #登陆验证
-  basic: 
+      defaultZone: http://localhost:8090/eureka/    
+security:										#登陆验证
+  basic:
     enabled: false
   user:
     name: user
