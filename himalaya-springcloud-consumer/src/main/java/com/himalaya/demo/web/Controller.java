@@ -24,6 +24,6 @@ public class Controller {
 	@GetMapping("/user/{id}")
 	public UserDO findById(@PathVariable Long id) {
 		
-		return this.restTemplate.getForObject("http://localhost:8080/provider/" + id, UserDO.class);
+		return this.restTemplate.getForObject("http://localhost:8080/user/" + id, UserDO.class);
 	}
 }

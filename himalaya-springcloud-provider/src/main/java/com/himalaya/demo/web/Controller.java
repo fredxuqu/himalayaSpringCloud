@@ -18,14 +18,14 @@ public class Controller {
 	@Autowired
 	HimalayaService himalayaService;
 	
-	@GetMapping("/{id}")
+	@GetMapping("/user/{id}")
 	public UserDO getUserById(@PathVariable Long id){
 		
 		LOGGER.info("getUserById called....");
 		return this.himalayaService.getUserById(id);
 	}
 	
-	@GetMapping("/service")
+	@GetMapping("/user/service")
 	public String service(){
 		
 		LOGGER.info("service called....");
