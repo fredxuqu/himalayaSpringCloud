@@ -17,15 +17,14 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://localhost:8090/eureka/  
-        
-security:                                      #登陆验证
-  basic: 
-    enabled: false
+      defaultZone: http://localhost:8090/eureka/    
+security:										#登陆验证
+  basic:
+    enabled: true
   user:
     name: user
     password: pwd123456
- 
+    
 ---
 spring:
   profiles: peer1
