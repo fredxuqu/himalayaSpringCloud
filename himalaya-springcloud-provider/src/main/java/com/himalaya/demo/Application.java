@@ -20,6 +20,6 @@ public class Application {
 		 
 		SpringApplication.run(Application.class, args);
 		
-		LOGGER.info("HimalayaSpringBootApplication is running......");
+		LOGGER.info("Provider Application is running......");
 	}
 }
