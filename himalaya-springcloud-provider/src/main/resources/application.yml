@@ -21,10 +21,12 @@ spring:
 logging:                                # 配置日志级别，让hibernate打印出执行的SQL
   level:
     root: INFO
+    com.himalaya: INFO
     org.hibernate: INFO
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
     org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
-      
+  file: ./logs/app.log
+        
 eureka:
   client:
     serviceUrl:

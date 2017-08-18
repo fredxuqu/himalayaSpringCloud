@@ -4,13 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import com.himalaya.demo.domain.UserDO;
+import com.himalaya.demo.domain.service.DiscoveryService;
+import com.himalaya.demo.domain.service.HimalayaService;
 
 /**
 * @author: xuqu
@@ -23,20 +23,25 @@ import com.himalaya.demo.domain.UserDO;
 public class Controller {
 	
 	@Autowired
-	RestTemplate restTemplate;
+	HimalayaService himalayaService;
 	
 	@Autowired
-	DiscoveryClient discoveryCient;
+	DiscoveryService discoveryService;
 	
-	@GetMapping("/user-instance")
-	public List<ServiceInstance> showInfo(){
-		return this.discoveryCient.getInstances("himalaya-springcloud-provider");
+	@GetMapping("/instances")
+	public List<ServiceInstance> getServiceInstances(){
+		return this.discoveryService.getServiceInstances();
+	}
+	
+	@GetMapping("/instance")
+	public ServiceInstance getServiceInstance(){
+		return this.discoveryService.getServiceInstance();
 	}
 
 	@GetMapping("/user/{id}")
 	public UserDO findById(@PathVariable Long id) {
 		
-		return this.restTemplate.getForObject("http://localhost:8080/user/" + id, UserDO.class);
+		return this.himalayaService.findById(id);
 	}
 	
 	

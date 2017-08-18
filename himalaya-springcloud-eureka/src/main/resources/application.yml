@@ -6,7 +6,12 @@ spring:
     name: himalaya-springcloud-eureka
   profiles:
     active: standalone
-
+    
+logging:                                # 配置日志级别，让hibernate打印出执行的SQL
+  level:
+    root: INFO
+  file: ./logs/app.log
+  
 ---
 spring:
   profiles: standalone
@@ -18,13 +23,14 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://localhost:8090/eureka/  
-        
-security:                                      #登陆验证
-  basic: 
-    enabled: false
-  user:
-    name: user
-    password: pwd123456
+
+# 如果注释掉了security配置，则必须将security依赖从pom中移除        
+#security:                                      #登陆验证
+#  basic: 
+#    enabled: false
+#  user:
+#    name: user
+#    password: pwd123456
  
 ---
 spring:

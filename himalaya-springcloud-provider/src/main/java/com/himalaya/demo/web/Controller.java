@@ -22,7 +22,9 @@ public class Controller {
 	public UserDO getUserById(@PathVariable Long id){
 		
 		LOGGER.info("getUserById called....");
-		return this.himalayaService.getUserById(id);
+		UserDO user = this.himalayaService.getUserById(id);
+		LOGGER.info("User Info : " + user.toString());
+		return user;
 	}
 	
 	@GetMapping("/user/service")
