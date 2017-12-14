@@ -1,0 +1,32 @@
+<assembly>
+	<id>ZIP</id>
+	<formats>
+		<format>tar.gz</format>
+	</formats>
+	<includeBaseDirectory>true</includeBaseDirectory>
+	<fileSets>
+		<fileSet>
+			<directory>src/main/resources/${env}</directory>
+			<outputDirectory>conf</outputDirectory>
+			<fileMode>0644</fileMode><!--0664的权限 -->
+		</fileSet>
+		<fileSet>
+			<directory>src/main/bin</directory>  <!-- 将src/main/bin目录下的文件打包到根目录(/bin)下. -->
+			<outputDirectory>bin</outputDirectory>
+			<fileMode>0755</fileMode> <!-- 0775的权限 随意权限 -->
+		</fileSet>
+		<fileSet>
+            <directory>${project.build.directory}</directory>
+            <outputDirectory>lib</outputDirectory>
+            <includes>
+                <include>*.jar</include>
+            </includes>
+        </fileSet>
+	</fileSets>
+	
+<!-- 	<dependencySets>
+		<dependencySet>
+			<outputDirectory>lib</outputDirectory>
+		</dependencySet>
+	</dependencySets> -->
+</assembly>  

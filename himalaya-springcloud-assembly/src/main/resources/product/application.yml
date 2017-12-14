@@ -1,0 +1,40 @@
+  
+server:
+  port: 8080
+  sessionTimeout: 30000
+  #context-path: /provider
+
+spring:
+  application:  
+    name: himalaya-springcloud-provider
+    
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:                           # 指定数据源
+    platform: h2                        # 指定数据源类型
+    schema: classpath:schema.sql        # 指定h2数据库的建表脚本
+    data: classpath:data.sql            # 指定h2数据库的数据脚本
+    
+logging:                                # 配置日志级别，让hibernate打印出执行的SQL
+  level:
+    root: INFO
+    com.himalaya: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+  file: ./logs/app.log
+        
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8090/eureka/
+      #defaultZone: http://user:pwd123456@localhost:8090/eureka/   # 注册到有安全验证的eureka server
+  instance:
+    prefer-ip-address: true
+    metadata-map:
+      my-metadata: custom configuration by provider
+      
+      

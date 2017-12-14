@@ -29,6 +29,7 @@
 		<module>himalaya-springcloud-provider</module>
 		<module>himalaya-springcloud-consumer</module>
 		<module>himalaya-springcloud-eureka</module>
+		<module>himalaya-springcloud-assembly</module>
 	</modules>
 	
 	<dependencyManagement>
