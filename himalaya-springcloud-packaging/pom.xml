@@ -8,93 +8,59 @@
 		<artifactId>himalaya-springcloud</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-
+	
 	<artifactId>himalaya-springcloud-packaging</artifactId>
-	<packaging>jar</packaging>
-
 	<name>himalaya-springcloud-packaging</name>
+	<packaging>pom</packaging>
 	<description>Demo project for Spring Packaging</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-		<profiles.dir>src/main/resources</profiles.dir>  
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.himalaya</groupId>
-			<artifactId>himalaya-springcloud-assembly</artifactId>
-			<version>${parent.version}</version>
+			<artifactId>himalaya-springcloud-provider</artifactId>
+			<version>${project.parent.version}</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>com.himalaya</groupId>
+			<artifactId>himalaya-springcloud-consumer</artifactId>
+			<version>${project.parent.version}</version>
+			<type>jar</type>
 		</dependency>
 	</dependencies>
-	
-	
-	<profiles>  
-        <profile>  
-            <id>dev</id>  
-            <activation>  
-                <property>  
-                    <name>environment.type</name>  
-                    <value>dev</value>  
-                </property>  
-                <activeByDefault>true</activeByDefault>  
-            </activation>  
-            <properties>  
-                <profile.dir>${profiles.dir}/dev</profile.dir>  
-            </properties>  
-            <build>  
-                <resources>  
-                    <resource>  
-                        <directory>${profile.dir}</directory>  
-                        <filtering>true</filtering>  
-                    </resource>  
-                </resources>  
-            </build>  
-        </profile>  
-        <profile>  
-            <id>test</id>  
-            <properties>  
-                <profile.dir>${profiles.dir}/test</profile.dir>  
-            </properties>  
-        </profile> 
-        <profile>  
-            <id>product</id>  
-            <properties>  
-                <profile.dir>${profiles.dir}/product</profile.dir>  
-            </properties>  
-        </profile>  
-    </profiles>  
+		
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+			<properties>
+				<env>dev</env>
+			</properties>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<env>test</env>
+			</properties>
+		</profile>
+		<profile>
+			<id>product</id>
+			<properties>
+				<env>product</env>
+			</properties>
+		</profile>
+	</profiles>
 
 	<build>
-		<finalName>${project.artifactId}</finalName>
-		<resources>  
-            <resource>  
-                <directory>src/main/resources</directory>  
-            </resource>  
-            <resource>  
-                <directory>${profile.dir}</directory>  
-                <filtering>true</filtering>  
-                <targetPath>${project.build.directory}/conf</targetPath>  
-            </resource> 
-            
-            <!-- <resource>  
-                <directory>src/main/resources</directory>  
-                <filtering>true</filtering>  
-                <excludes>  
-                    <exclude>dev/*</exclude>  
-                    <exclude>test/*</exclude>  
-                    <exclude>product/*</exclude>
-                    <exclude>*</exclude>
-                </excludes>  
-            </resource>  -->
-        </resources>        
+		<finalName>${project.artifactId}</finalName>      
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
 			<plugin>  
                 <artifactId>maven-assembly-plugin</artifactId>  
                 <configuration>  

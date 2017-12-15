@@ -30,6 +30,7 @@
 		<module>himalaya-springcloud-consumer</module>
 		<module>himalaya-springcloud-eureka</module>
 		<module>himalaya-springcloud-assembly</module>
+		<module>himalaya-springcloud-packaging</module>
 	</modules>
 	
 	<dependencyManagement>
