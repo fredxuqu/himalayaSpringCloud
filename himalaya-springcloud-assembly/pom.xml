@@ -66,7 +66,7 @@
 	</dependencies>
 
 
-	<profiles>
+	<!-- <profiles>
 		<profile>
 			<id>dev</id>
 			<activation>
@@ -88,7 +88,7 @@
 				<env>product</env>
 			</properties>
 		</profile>
-	</profiles>
+	</profiles> -->
 
 	<build>
 		<finalName>${project.artifactId}</finalName>

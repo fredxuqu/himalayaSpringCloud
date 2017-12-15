@@ -5,21 +5,47 @@
 		<format>dir</format>
 	</formats>
 	<includeBaseDirectory>true</includeBaseDirectory>
+
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory>consumer/lib</outputDirectory>
+			<includes>
+				<include>com.himalaya:himalaya-springcloud-provider</include>
+			</includes>
+		</dependencySet>
+		
+		<dependencySet>
+			<outputDirectory>provider/lib</outputDirectory>
+			<includes>
+				<include>com.himalaya:himalaya-springcloud-consumer</include>
+			</includes>
+		</dependencySet>
+	</dependencySets>
+
 	<fileSets>
+		<!-- Module 1 Consumer -->
 		<fileSet>
-			<directory>${project.build.directory}/conf</directory>
-			<outputDirectory>conf</outputDirectory>
+			<directory>src/main/consumer/conf/${env}</directory>
+			<outputDirectory>consumer/conf</outputDirectory>
 			<fileMode>0644</fileMode><!--0664的权限 -->
 		</fileSet>
 		<fileSet>
-			<directory>src/main/bin</directory>  <!-- 将src/main/bin目录下的文件打包到根目录(/bin)下. -->
-			<outputDirectory>/bin</outputDirectory>
+			<directory>src/main/consumer/bin</directory>  <!-- 将src/main/bin目录下的文件打包到根目录(/bin)下. -->
+			<outputDirectory>consumer/bin</outputDirectory>
+			<fileMode>0755</fileMode> <!-- 0775的权限 随意权限 -->
+		</fileSet>
+
+
+		<!-- Module 1 Provider -->
+		<fileSet>
+			<directory>src/main/provider/conf/${env}</directory>
+			<outputDirectory>provider/conf</outputDirectory>
+			<fileMode>0644</fileMode><!--0664的权限 -->
+		</fileSet>
+		<fileSet>
+			<directory>src/main/provider/bin</directory>  <!-- 将src/main/bin目录下的文件打包到根目录(/bin)下. -->
+			<outputDirectory>provider/bin</outputDirectory>
 			<fileMode>0755</fileMode> <!-- 0775的权限 随意权限 -->
 		</fileSet>
 	</fileSets>
-	<dependencySets>
-		<dependencySet>
-			<outputDirectory>lib</outputDirectory>
-		</dependencySet>
-	</dependencySets>
 </assembly>  
