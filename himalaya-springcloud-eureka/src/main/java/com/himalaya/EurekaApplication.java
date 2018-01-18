@@ -16,6 +16,6 @@ public class EurekaApplication {
 		 
 		SpringApplication.run(EurekaApplication.class, args);
 		
-		LOGGER.info("Provider EurekaApplication is running......");
+		LOGGER.info("Eureka server started.");
 	}
 }
