@@ -1,32 +1,70 @@
 <assembly>
-	<id>ZIP</id>
+	<id>assembly</id>
 	<formats>
-		<format>zip</format>
+		<format>tar.gz</format>
+		<format>dir</format>
 	</formats>
 	<includeBaseDirectory>true</includeBaseDirectory>
+
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory>eureka/lib</outputDirectory>
+			<includes>
+				<include>com.himalaya:himalaya-springcloud-eureka</include>
+			</includes>
+		</dependencySet>
+		
+		<dependencySet>
+			<outputDirectory>consumer/lib</outputDirectory>
+			<includes>
+				<include>com.himalaya:himalaya-springcloud-provider</include>
+			</includes>
+		</dependencySet>
+		
+		<dependencySet>
+			<outputDirectory>provider/lib</outputDirectory>
+			<includes>
+				<include>com.himalaya:himalaya-springcloud-consumer</include>
+			</includes>
+		</dependencySet>
+	</dependencySets>
+
 	<fileSets>
+		<!-- Module 0 Eureka -->
 		<fileSet>
-			<directory>src/main/resources/${env}</directory>
-			<outputDirectory>conf</outputDirectory>
+			<directory>src/main/resources/eureka/conf/${env}</directory>
+			<outputDirectory>eureka/conf</outputDirectory>
 			<fileMode>0644</fileMode><!--0664的权限 -->
 		</fileSet>
 		<fileSet>
-			<directory>src/main/bin</directory>  <!-- 将src/main/bin目录下的文件打包到根目录(/bin)下. -->
-			<outputDirectory>bin</outputDirectory>
+			<directory>target/classes/eureka/bin</directory>  <!-- 将src/main/bin目录下的文件打包到根目录(/bin)下. -->
+			<outputDirectory>eureka/bin</outputDirectory>
 			<fileMode>0755</fileMode> <!-- 0775的权限 随意权限 -->
 		</fileSet>
+		
+		<!-- Module 1 Consumer -->
 		<fileSet>
-            <directory>${project.build.directory}</directory>
-            <outputDirectory>lib</outputDirectory>
-            <includes>
-                <include>*.jar</include>
-            </includes>
-        </fileSet>
+			<directory>src/main/resources/consumer/conf/${env}</directory>
+			<outputDirectory>consumer/conf</outputDirectory>
+			<fileMode>0644</fileMode><!--0664的权限 -->
+		</fileSet>
+		<fileSet>
+			<directory>target/classes/consumer/bin</directory>  <!-- 将src/main/bin目录下的文件打包到根目录(/bin)下. -->
+			<outputDirectory>consumer/bin</outputDirectory>
+			<fileMode>0755</fileMode> <!-- 0775的权限 随意权限 -->
+		</fileSet>
+
+
+		<!-- Module 1 Provider -->
+		<fileSet>
+			<directory>src/main/resources/provider/conf/${env}</directory>
+			<outputDirectory>provider/conf</outputDirectory>
+			<fileMode>0644</fileMode><!--0664的权限 -->
+		</fileSet>
+		<fileSet>
+			<directory>target/classes/provider/bin</directory>  <!-- 将src/main/bin目录下的文件打包到根目录(/bin)下. -->
+			<outputDirectory>provider/bin</outputDirectory>
+			<fileMode>0755</fileMode> <!-- 0775的权限 随意权限 -->
+		</fileSet>
 	</fileSets>
-	
-<!-- 	<dependencySets>
-		<dependencySet>
-			<outputDirectory>lib</outputDirectory>
-		</dependencySet>
-	</dependencySets> -->
 </assembly>  

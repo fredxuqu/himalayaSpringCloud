@@ -6,11 +6,14 @@ spring:
     name: himalaya-springcloud-eureka
   profiles:
     active: standalone
-    
-logging:                                # 配置日志级别，让hibernate打印出执行的SQL
+
+# Control log level TRACE < DEBUG < INFO < WARN < ERROR  
+# 配置日志级别，让hibernate打印出执行的SQL  
+logging:
   level:
-    root: INFO
-  file: ./logs/app.log
+    com:
+      himalaya: info
+  file: logs/${spring.application.name}.log
   
 ---
 spring:
@@ -25,7 +28,7 @@ eureka:
       defaultZone: http://localhost:8090/eureka/  
 
 # 如果注释掉了security配置，则必须将security依赖从pom中移除        
-#security:                                      #登陆验证
+#security:    #登陆验证
 #  basic: 
 #    enabled: false
 #  user:
