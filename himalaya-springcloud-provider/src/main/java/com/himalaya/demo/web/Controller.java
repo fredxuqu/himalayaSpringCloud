@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.himalaya.demo.domain.entity.UserDO;
+import com.himalaya.demo.domain.TagsDO;
 import com.himalaya.demo.service.HimalayaService;
 
 @RestController
@@ -19,10 +19,10 @@ public class Controller {
 	HimalayaService himalayaService;
 	
 	@GetMapping("/user/{id}")
-	public UserDO getUserById(@PathVariable Long id){
+	public Object getUserById(@PathVariable Long id){
 		
 		LOGGER.info("getUserById called....");
-		UserDO user = this.himalayaService.getUserById(id);
+		TagsDO user = this.himalayaService.query(id);
 		LOGGER.info("User Info : " + user.toString());
 		return user;
 	}

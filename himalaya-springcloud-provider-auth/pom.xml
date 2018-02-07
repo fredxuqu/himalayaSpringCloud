@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.himalaya</groupId>
 		<artifactId>himalaya-springcloud</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.1</version>
 	</parent>
 
 	<artifactId>himalaya-springcloud-provider-auth</artifactId>
@@ -70,7 +70,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>himalaya-provider</finalName>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

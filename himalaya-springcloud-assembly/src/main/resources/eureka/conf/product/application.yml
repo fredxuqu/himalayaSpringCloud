@@ -1,0 +1,37 @@
+---
+spring:
+  application: 
+    name: himalaya-springcloud-eureka
+  profiles:
+    active: peer1
+
+# Control log level TRACE < DEBUG < INFO < WARN < ERROR
+logging:
+  level:
+    com:
+      himalaya: info
+  file: logs/${spring.application.name}.log
+
+---
+spring:
+  profiles: peer1
+server:
+  port: 8090
+eureka:
+  instance:
+    hostname: 192.168.179.128                              # 指定当profile=peer1时，主机名是peer1
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.179.129:8090/eureka/     # 将自己注册到peer2这个Eureka上面去
+
+---
+spring:
+  profiles: peer2
+server:
+  port: 8090
+eureka:
+  instance:
+    hostname: 192.168.179.129
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.179.128:8090/eureka/

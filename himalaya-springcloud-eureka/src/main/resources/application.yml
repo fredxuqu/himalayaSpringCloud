@@ -1,0 +1,44 @@
+# References: http://projects.spring.io/spring-cloud/docs/1.0.3/spring-cloud.html#_standalone_mode
+# References: http://my.oschina.net/buwei/blog/618756
+# eureka.client.registerWithEureka:  means if register itself to Eureka Server， default value is true. Since this application is Eureka Server, so set value to false.
+# eureka.client.fetchRegistry:  means if getting register information from Eureka Server, default is true. Since current mode is standalone mode, no need to fetch register from other server, so set value to false
+# eureka.client.serviceUrl.defaultZone: Eureka Server interact address, server and client are depend on this address. default is http://localhost:8761/eureka, multi-address split by ",".
+---
+spring:
+  application: 
+    name: himalaya-springcloud-eureka
+  profiles:
+    active: standalone
+
+# Control log level TRACE < DEBUG < INFO < WARN < ERROR  
+logging:
+  level:
+    com:
+      himalaya: info
+  file: logs/${spring.application.name}.log
+  
+---
+spring:
+  profiles: standalone
+server:
+  port: 8090
+eureka:
+  environment: dev
+  instance:
+    leaseRenewalIntervalInSeconds: 30
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 4000
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:8090/eureka/
+
+#security:    # Login Authentication
+#  basic: 
+#    enabled: false
+#  user:
+#    name: user
+#    password: pwd123456
+     

@@ -6,11 +6,12 @@
 	<parent>
 		<groupId>com.himalaya</groupId>
 		<artifactId>himalaya-springcloud</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.1</version>
 	</parent>
 
 	<artifactId>himalaya-springcloud-assembly</artifactId>
 	<name>himalaya-springcloud-assembly</name>
+	
 	<description>Demo project for Spring Assembly</description>
 
 	<properties>
@@ -39,40 +40,10 @@
 		</dependency>
 	</dependencies>
 
-	<profiles>
-		<profile>
-			<id>dev</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<env>dev</env>
-				<project.version.release>${project.version}</project.version.release>
-			</properties>
-		</profile>
-		<profile>
-			<id>test</id>
-			<properties>
-				<env>test</env>
-				<project.version.release>${project.version}</project.version.release>
-			</properties>
-		</profile>
-		<profile>
-			<id>product</id>
-			<properties>
-				<env>product</env>
-				<project.version.release>${project.version}</project.version.release>
-			</properties>
-		</profile>
-	</profiles>
-
 	<build>
 		<finalName>${project.artifactId}</finalName>
 
 		<resources>  
-            <resource>  
-                <directory>src/main/resources</directory>  
-            </resource>  
             <resource>  
                 <directory>src/main/resources</directory>  
                 <filtering>true</filtering>
@@ -83,7 +54,7 @@
             </resource>  
         </resources>
         
-		<!-- <plugins>
+		<plugins>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
@@ -99,7 +70,7 @@
 					</execution>
 				</executions>
 			</plugin>
-		</plugins> -->
+		</plugins>
 	</build>
 
 </project>

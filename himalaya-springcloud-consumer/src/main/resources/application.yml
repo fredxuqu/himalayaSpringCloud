@@ -9,10 +9,14 @@ server:
 
 eureka:
   client:
+    healthcheck:
+      enabled: true
     serviceUrl:
       defaultZone: http://localhost:8090/eureka/
       # defaultZone: http://user:pwd123456@localhost:8090/eureka/   # 注册到有安全验证的eureka server
   instance:
+    lease-expiration-duration-in-seconds: 30 
+    lease-renewal-interval-in-seconds: 10
     prefer-ip-address: true
     
 # 配置日志级别，让hibernate打印出执行的SQL
