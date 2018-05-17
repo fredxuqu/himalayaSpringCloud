@@ -1,0 +1,21 @@
+server: 
+  port: 8070
+  sessionTimeout: 30000
+  context-path: /consumer
+spring:
+  application:
+    name: himalaya-springcloud-consumer
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8090/eureka/
+  instance:
+    prefer-ip-address: true   
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    
+# 配置日志级别，让hibernate打印出执行的SQL
+logging:                                
+  level:
+    root: INFO
+    com.himalaya: DEBUG
+  file: ./logs/app.log

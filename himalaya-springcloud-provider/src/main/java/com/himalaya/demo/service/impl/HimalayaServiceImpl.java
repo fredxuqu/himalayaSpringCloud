@@ -19,6 +19,12 @@ public class HimalayaServiceImpl implements HimalayaService {
 
 	@Override
 	public TagsDO query(long id) {
-		return null;
+		
+		LOGGER.info("query enter....");
+		
+		TagsDO tagsDO = new TagsDO();
+		tagsDO.setId(id);
+		tagsDO.setTagName("TAGS ID " + id);
+		return tagsDO;
 	}
 }

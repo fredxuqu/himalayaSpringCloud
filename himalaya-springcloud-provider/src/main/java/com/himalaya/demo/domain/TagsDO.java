@@ -9,7 +9,7 @@ public class TagsDO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private int id;
+	private long id;
 	private String tagName;
 	private int type;
 	private int status;
@@ -19,10 +19,10 @@ public class TagsDO implements Serializable {
 	private Date modifyTime;
 	private String modifyUser;
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getTagName() {

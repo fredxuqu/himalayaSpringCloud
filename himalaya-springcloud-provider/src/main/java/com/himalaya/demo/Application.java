@@ -16,7 +16,6 @@ public class Application {
 		 
 		SpringApplication.run(Application.class, args);
 		
-		LOGGER.debug("Debug log - Provider Application is running......");
 		LOGGER.info("Provider Application is running......");
 	}
 }

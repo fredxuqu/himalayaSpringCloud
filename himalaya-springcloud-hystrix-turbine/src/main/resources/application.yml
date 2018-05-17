@@ -1,0 +1,14 @@
+server:
+  port: 8020
+spring:
+  application:
+    name: himalaya-springcloud-hystrix-turbine
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8090/eureka/
+  instance:
+    prefer-ip-address: true
+turbine:
+  appConfig: himalaya-springcloud-consumer
+  clusterNameExpression: "'default'"

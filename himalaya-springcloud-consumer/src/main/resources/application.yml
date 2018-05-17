@@ -1,38 +1,21 @@
-spring: 
-  application:  
-    name: himalaya-springcloud-consumer
-
 server: 
   port: 8070
   sessionTimeout: 30000
-#  context-path: /consumer
-
+  context-path: /consumer
+spring:
+  application:
+    name: himalaya-springcloud-consumer
 eureka:
   client:
-    healthcheck:
-      enabled: true
     serviceUrl:
       defaultZone: http://localhost:8090/eureka/
-      # defaultZone: http://user:pwd123456@localhost:8090/eureka/   # 注册到有安全验证的eureka server
   instance:
-    lease-expiration-duration-in-seconds: 30 
-    lease-renewal-interval-in-seconds: 10
-    prefer-ip-address: true
+    prefer-ip-address: true   
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
     
-# 配置日志级别，让hibernate打印出执行的SQL
+# 配置日志级别
 logging:                                
   level:
     root: INFO
     com.himalaya: DEBUG
   file: ./logs/app.log
-
-## INFO
-info: 
-  app: 
-    name: @project.artifactId@
-    encoding: @project.build.sourceEncoding@
-    java:
-      source: @java.version@
-      target: @java.version@
-      
-      
