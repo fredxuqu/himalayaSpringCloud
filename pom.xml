@@ -33,8 +33,10 @@
 		<module>himalaya-springcloud-consumer-ribbon</module>
 		<module>himalaya-springcloud-consumer-feign</module>
 		<module>himalaya-springcloud-consumer-hystrix</module>
+		<module>himalaya-springcloud-consumer1</module>
 		<module>himalaya-springcloud-hystrix-dashboard</module>
 		<module>himalaya-springcloud-hystrix-turbine</module>
+		<module>himalaya-springcloud-zuul</module>
 		<module>himalaya-springcloud-assembly</module>
 	</modules>
 
