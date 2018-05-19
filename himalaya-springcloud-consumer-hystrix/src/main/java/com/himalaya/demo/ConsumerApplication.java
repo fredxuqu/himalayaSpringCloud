@@ -15,8 +15,8 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableFeignClients
 @EnableHystrix
-public class Application {
-	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
+public class ConsumerApplication {
+	private static final Logger LOGGER = LoggerFactory.getLogger(ConsumerApplication.class);
 
 	@Bean
 	@LoadBalanced
@@ -25,7 +25,7 @@ public class Application {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(ConsumerApplication.class, args);
 
 		LOGGER.info("Consumer Application is running......");
 	}

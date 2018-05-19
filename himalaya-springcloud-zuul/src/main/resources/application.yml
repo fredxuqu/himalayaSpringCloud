@@ -7,6 +7,18 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8090/eureka/
+zuul:
+  ignored-services: himalaya-springcloud-provider   
+# ignored-services: himalaya-springcloud-provider,himalaya-springcloud-consumer 
+                                                     # ignored-services 可以标注哪些服务不需要代理
+                                                     # ignored-services: '*'
+  routes:
+    himalaya-springcloud-provider: /provider/**
+    himalaya-springcloud-consumer: /consumer/**
+  user-route:
+    service-id: himalaya-springcloud-provider
+    path: /user/**
+  
     
 # 配置日志级别，让hibernate打印出执行的SQL
 logging:                                

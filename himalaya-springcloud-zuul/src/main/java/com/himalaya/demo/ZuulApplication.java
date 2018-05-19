@@ -8,12 +8,13 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 @SpringBootApplication
 @EnableZuulProxy
-public class Application {
+public class ZuulApplication {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ZuulApplication.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		
+		SpringApplication.run(ZuulApplication.class, args);
 
 		LOGGER.info("Zuul Proxy Application is running......");
 	}
