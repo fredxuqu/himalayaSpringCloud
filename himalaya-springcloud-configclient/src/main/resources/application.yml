@@ -1,0 +1,11 @@
+server:
+  port: 8081
+  sessionTimeout: 30000
+  context-path: /configclient
+          
+# 配置日志级别，让hibernate打印出执行的SQL
+logging:                                
+  level:
+    root: INFO
+    com.himalaya: DEBUG
+  file: ./logs/app.log

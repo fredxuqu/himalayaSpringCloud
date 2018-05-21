@@ -37,6 +37,8 @@
 		<module>himalaya-springcloud-hystrix-dashboard</module>
 		<module>himalaya-springcloud-hystrix-turbine</module>
 		<module>himalaya-springcloud-zuul</module>
+		<module>himalaya-springcloud-configserver</module>
+		<module>himalaya-springcloud-configclient</module>
 		<module>himalaya-springcloud-assembly</module>
 	</modules>
 

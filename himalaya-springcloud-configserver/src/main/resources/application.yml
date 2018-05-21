@@ -1,0 +1,21 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: himalaya-springcloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/fredxuqu/himalayaSpringCloudConfig
+          username: 
+          password:
+          
+# 配置日志级别，让hibernate打印出执行的SQL
+logging:                                
+  level:
+    root: INFO
+    com.himalaya: DEBUG
+  file: ./logs/app.log
+  
+# http://localhost:8080/himalaya-config/dev
